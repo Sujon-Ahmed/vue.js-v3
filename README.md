@@ -32,3 +32,33 @@
 > Vue is a framework built by taking the good parts from a lot of other libraries and frameworks and then improving where necessary
 
 > Vue is going to be a great addition to your skillset
+
+### Four ways to add Vue
+
+__1.CDN Package__
+``` js
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+```
+
+__2.npm__
+
+Preferred approach over CDN when building large scale applications with Vue.
+
+__3. Vue CLI__
+
+Vue provides an offical CLI for quickly scaffolding single page applications
+
+```
+npm install -g @vue/cli
+vue create <project-name>
+```
+
+__4.Vite__
+
+An opinion web dev build tool that serves your code via native ES Module inport
+
+Your code is served at a lighting fast speed and you get nearly instant hot module replacement
+
+```
+npm init vite-app <project-name>
+```
