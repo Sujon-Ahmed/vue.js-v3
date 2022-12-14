@@ -1,8 +1,5 @@
-<center>
-<img src="logo/vuejs.png" alt="logo" width="100%" height="auto"> 
-</center>
-<hr>
-<h3 style="text-align:right; color: mediumseagreen">Learn Vue.js V3 with Codevolution</h3>
+# Vue.js-v3
+> Learn Vue.js V3 with Codevolution
 
 ## What is Vue.js
 - A popular JavaScript framework for building user interfaces
