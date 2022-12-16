@@ -20,6 +20,15 @@
   >
     Object conditional movie
   </h2>
+  <!-- style binding -->
+  <h2 v-bind:style="{
+    color: highlightColor,
+    fontSize: headerSize + 'px',
+    padding: '20px'
+  }">Inline Style</h2>
+  <h1 v-bind:style="headerStyleObject">Style Object</h1>
+  <div v-bind:style="[baseStyleObject, successStyleObject]">Inline array base style</div>
+  <div v-bind:style="[baseStyleObject, dangerStyleObject]">Inline array base style two</div>
 </template>
 
 <script>
@@ -36,6 +45,28 @@ export default {
       danger: "danger",
       isPromoted: false,
       isSoldout: true,
+      highlightColor: 'orange',
+      headerSize: 50,
+      headerStyleObject: {
+        color: 'orange',
+        fontSize: '50px',
+        padding: '20px',
+      },
+      baseStyleObject: {
+        fontSize: '50px',
+        padding: '20px'
+      },
+      successStyleObject: {
+        color: 'green',
+        backgroundColor: 'lightgreen',
+        border: '1px solid green',
+        padding: '50px'
+      },
+      dangerStyleObject: {
+        color: 'darkred',
+        backgroundColor: 'red',
+        border: '1px solid red'
+      }
     };
   },
 };
