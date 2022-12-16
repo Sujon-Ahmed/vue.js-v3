@@ -1,18 +1,18 @@
 <template>
   <h3>{{ name }}</h3>
   <p v-text="gmail"></p>
-  <h4 v-bind:id="isSuccessed" v-html="nickName"></h4>
+  <h4 :id="isSuccessed" v-html="nickName"></h4>
   <p v-html="hack"></p>
-  <button v-bind:disabled="isDisabled">Bind Disabled</button>
-  <p v-bind:class="danger" class="underline">class binding</p>
-  <h2 v-bind:class="isPromoted && 'promoted'">promoted movie</h2>
-  <h2 v-bind:class="isSoldout ? 'sold-out' : 'new'">sold-out movie</h2>
-  <h2 v-bind:class="['new', 'promoted']">Newly promoted movie</h2>
-  <h2 v-bind:class="[isPromoted && 'promoted', isSoldout ? 'sold-out' : 'new']">
+  <button :disabled="isDisabled">Bind Disabled</button>
+  <p :class="danger" class="underline">class binding</p>
+  <h2 :class="isPromoted && 'promoted'">promoted movie</h2>
+  <h2 :class="isSoldout ? 'sold-out' : 'new'">sold-out movie</h2>
+  <h2 :class="['new', 'promoted']">Newly promoted movie</h2>
+  <h2 :class="[isPromoted && 'promoted', isSoldout ? 'sold-out' : 'new']">
     Array conditional movie
   </h2>
   <h2
-    v-bind:class="{
+    :class="{
       promoted: isPromoted,
       new: !isSoldout,
       'sold-out': isSoldout,
@@ -21,14 +21,14 @@
     Object conditional movie
   </h2>
   <!-- style binding -->
-  <h2 v-bind:style="{
+  <h2 :style="{
     color: highlightColor,
     fontSize: headerSize + 'px',
     padding: '20px'
   }">Inline Style</h2>
-  <h1 v-bind:style="headerStyleObject">Style Object</h1>
-  <div v-bind:style="[baseStyleObject, successStyleObject]">Inline array base style</div>
-  <div v-bind:style="[baseStyleObject, dangerStyleObject]">Inline array base style two</div>
+  <h1 :style="headerStyleObject">Style Object</h1>
+  <div :style="[baseStyleObject, successStyleObject]">Inline array base style</div>
+  <div :style="[baseStyleObject, dangerStyleObject]">Inline array base style two</div>
 </template>
 
 <script>
