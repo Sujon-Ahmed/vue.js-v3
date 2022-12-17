@@ -21,14 +21,22 @@
     Object conditional movie
   </h2>
   <!-- style binding -->
-  <h2 :style="{
-    color: highlightColor,
-    fontSize: headerSize + 'px',
-    padding: '20px'
-  }">Inline Style</h2>
+  <h2
+    :style="{
+      color: highlightColor,
+      fontSize: headerSize + 'px',
+      padding: '20px',
+    }"
+  >
+    Inline Style
+  </h2>
   <h1 :style="headerStyleObject">Style Object</h1>
-  <div :style="[baseStyleObject, successStyleObject]">Inline array base style</div>
-  <div :style="[baseStyleObject, dangerStyleObject]">Inline array base style two</div>
+  <div :style="[baseStyleObject, successStyleObject]">
+    Inline array base style
+  </div>
+  <div :style="[baseStyleObject, dangerStyleObject]">
+    Inline array base style two
+  </div>
 
   <!-- conditional rendering -->
   <h2 v-if="num === 0">Number is Zero</h2>
@@ -36,13 +44,16 @@
   <h2 v-else-if="num < 0">Number is Negative</h2>
   <h2 v-else>Not a Number</h2>
 
-  <div v-if="msg === 'Hi Mom'">
+  <template v-if="msg === 'Hi Mom'">
     <h3>I am Sujon</h3>
     <h3>I love my mom 💜</h3>
     <h3>She is my heart❣</h3>
-  </div>
+  </template>
 
-
+  <!-- conditional rendering  -->
+  <!-- v-if VS v-show ? ans: v-if => condition when false remove dom elem but v-show display:none not remove dom tree-->
+  <h2 v-show="showElem">Using v-show</h2>
+  <h2 v-if="showElem">Using v-if</h2>
 </template>
 
 <script>
@@ -59,30 +70,31 @@ export default {
       danger: "danger",
       isPromoted: false,
       isSoldout: true,
-      highlightColor: 'orange',
+      highlightColor: "orange",
       headerSize: 50,
       headerStyleObject: {
-        color: 'orange',
-        fontSize: '50px',
-        padding: '20px',
+        color: "orange",
+        fontSize: "50px",
+        padding: "20px",
       },
       baseStyleObject: {
-        fontSize: '50px',
-        padding: '20px'
+        fontSize: "50px",
+        padding: "20px",
       },
       successStyleObject: {
-        color: 'green',
-        backgroundColor: 'lightgreen',
-        border: '1px solid green',
-        padding: '50px'
+        color: "green",
+        backgroundColor: "lightgreen",
+        border: "1px solid green",
+        padding: "50px",
       },
       dangerStyleObject: {
-        color: 'darkred',
-        backgroundColor: 'red',
-        border: '1px solid red'
+        color: "darkred",
+        backgroundColor: "red",
+        border: "1px solid red",
       },
       num: 5,
-      msg: 'Hi Mom'
+      msg: "Hi Mom",
+      showElem: false,
     };
   },
 };
