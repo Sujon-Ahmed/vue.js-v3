@@ -47,13 +47,25 @@
   <template v-if="msg === 'Hi Mom'">
     <h3>I am Sujon</h3>
     <h3>I love my mom 💜</h3>
-    <h3>She is my heart❣</h3>
+    <h3>She is my heart</h3>
   </template>
 
   <!-- conditional rendering  -->
   <!-- v-if VS v-show ? ans: v-if => condition when false remove dom elem but v-show display:none not remove dom tree-->
   <h2 v-show="showElem">Using v-show</h2>
   <h2 v-if="showElem">Using v-if</h2>
+
+  <!-- list rendering -->
+  <h2 v-for="(name, index) in names" :key="index">{{ index }} {{ name }}</h2>
+  <h2 v-for="name in fullNames" :key="name.first">
+    {{ name.first }} {{ name.last }}
+  </h2>
+  <div v-for="actor in actors" :key="actor.name">
+    <h2>{{ actor.name }}</h2>
+    <h3 v-for="movie in actor.movies" :key="movie">{{ movie }}</h3>
+  </div>
+
+  <h2 v-for="info in myInfo" :key="info">{{ info }}</h2>
 </template>
 
 <script>
@@ -95,6 +107,27 @@ export default {
       num: 5,
       msg: "Hi Mom",
       showElem: false,
+      names: ["sujon", "sarah", "riman"],
+      fullNames: [
+        { first: "Sujon", last: "Ahmed" },
+        { first: "Sarah", last: "Islam" },
+        { first: "Riman", last: "Ahmed" },
+      ],
+      actors: [
+        {
+          name: "Christian Bale",
+          movies: ["Batman", "The Prestige"],
+        },
+        {
+          name: "Di Caprio",
+          movies: ["Titanic", "Inception"],
+        },
+      ],
+      myInfo: {
+        name: "Sujon Ahmed",
+        designation: "Web Application Developer",
+        course: "Vue 3",
+      },
     };
   },
 };
