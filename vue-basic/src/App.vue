@@ -66,6 +66,11 @@
   </div>
 
   <h2 v-for="info in myInfo" :key="info">{{ info }}</h2>
+
+  <!-- conditional list rendering -->
+  <template v-for="name in names" :key="name">
+    <h1 v-if="name === 'sujon'">{{ name }}</h1>
+  </template>
 </template>
 
 <script>
