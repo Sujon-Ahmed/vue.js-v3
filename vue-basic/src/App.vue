@@ -29,6 +29,20 @@
   <h1 :style="headerStyleObject">Style Object</h1>
   <div :style="[baseStyleObject, successStyleObject]">Inline array base style</div>
   <div :style="[baseStyleObject, dangerStyleObject]">Inline array base style two</div>
+
+  <!-- conditional rendering -->
+  <h2 v-if="num === 0">Number is Zero</h2>
+  <h2 v-else-if="num > 0">Number is Positive</h2>
+  <h2 v-else-if="num < 0">Number is Negative</h2>
+  <h2 v-else>Not a Number</h2>
+
+  <div v-if="msg === 'Hi Mom'">
+    <h3>I am Sujon</h3>
+    <h3>I love my mom 💜</h3>
+    <h3>She is my heart❣</h3>
+  </div>
+
+
 </template>
 
 <script>
@@ -66,7 +80,9 @@ export default {
         color: 'darkred',
         backgroundColor: 'red',
         border: '1px solid red'
-      }
+      },
+      num: 5,
+      msg: 'Hi Mom'
     };
   },
 };
