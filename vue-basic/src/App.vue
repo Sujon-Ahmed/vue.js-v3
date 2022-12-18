@@ -1,5 +1,5 @@
 <template>
-  <h3>{{ name }}</h3>
+  <!-- <h3>{{ name }}</h3>
   <p v-text="gmail"></p>
   <h4 :id="isSuccessed" v-html="nickName"></h4>
   <p v-html="hack"></p>
@@ -19,9 +19,9 @@
     }"
   >
     Object conditional movie
-  </h2>
+  </h2> -->
   <!-- style binding -->
-  <h2
+  <!-- <h2
     :style="{
       color: highlightColor,
       fontSize: headerSize + 'px',
@@ -36,10 +36,10 @@
   </div>
   <div :style="[baseStyleObject, dangerStyleObject]">
     Inline array base style two
-  </div>
+  </div> -->
 
   <!-- conditional rendering -->
-  <h2 v-if="num === 0">Number is Zero</h2>
+  <!-- <h2 v-if="num === 0">Number is Zero</h2>
   <h2 v-else-if="num > 0">Number is Positive</h2>
   <h2 v-else-if="num < 0">Number is Negative</h2>
   <h2 v-else>Not a Number</h2>
@@ -48,15 +48,15 @@
     <h3>I am Sujon</h3>
     <h3>I love my mom 💜</h3>
     <h3>She is my heart</h3>
-  </template>
+  </template> -->
 
   <!-- conditional rendering  -->
   <!-- v-if VS v-show ? ans: v-if => condition when false remove dom elem but v-show display:none not remove dom tree-->
-  <h2 v-show="showElem">Using v-show</h2>
-  <h2 v-if="showElem">Using v-if</h2>
+  <!-- <h2 v-show="showElem">Using v-show</h2>
+  <h2 v-if="showElem">Using v-if</h2> -->
 
   <!-- list rendering -->
-  <h2 v-for="(name, index) in names" :key="index">{{ index }} {{ name }}</h2>
+  <!-- <h2 v-for="(name, index) in names" :key="index">{{ index }} {{ name }}</h2>
   <h2 v-for="name in fullNames" :key="name.first">
     {{ name.first }} {{ name.last }}
   </h2>
@@ -65,18 +65,30 @@
     <h3 v-for="movie in actor.movies" :key="movie">{{ movie }}</h3>
   </div>
 
-  <h2 v-for="info in myInfo" :key="info">{{ info }}</h2>
+  <h2 v-for="info in myInfo" :key="info">{{ info }}</h2> -->
 
   <!-- conditional list rendering -->
-  <template v-for="name in names" :key="name">
+  <!-- <template v-for="name in names" :key="name">
     <h1 v-if="name === 'sujon'">{{ name }}</h1>
-  </template>
+  </template> -->
 
   <!-- methods -->
-  <h4>{{ 2 + 2 }}</h4>
+  <!-- <h4>{{ 2 + 2 }}</h4>
   <h4>{{ 20 + 30 + 40 }}</h4>
   <h2>Add Methods - {{ add(10,20,30) }}</h2>
-  <h1>Multily Methods - {{ multiply(baseValue) }}</h1>
+  <h1>Multily Methods - {{ multiply(baseValue) }}</h1> -->
+
+  <!-- Event Handling -->
+  <h2>{{ name }}</h2>
+  <button v-on:click="name = 'Superman'">Change Name</button>
+
+  <h2>{{ count }}</h2>
+  <div>
+    <button v-on:click="increment(1)">Increment 1</button>
+    <button v-on:click="increment(5)">Increment 5</button>
+    <button v-on:click="decrement(1)">Decrement 1</button>
+    <button v-on:click="decrement(5)">Decrement 5</button>
+  </div>
 </template>
 
 <script>
@@ -140,7 +152,8 @@ export default {
         course: "Vue 3",
       },
       baseMultiplier: 5,
-      baseValue: 2
+      baseValue: 2,
+      count: 0,
     };
   },
   methods: {
@@ -149,7 +162,13 @@ export default {
     },
     multiply(num) {
       return num * this.baseMultiplier;
-    }
+    },
+    increment(num) {
+      this.count += num;
+    },
+    decrement(num) {
+      this.count -= num;
+    },
   },
 };
 </script>
