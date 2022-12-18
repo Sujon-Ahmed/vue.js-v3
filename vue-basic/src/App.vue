@@ -71,6 +71,12 @@
   <template v-for="name in names" :key="name">
     <h1 v-if="name === 'sujon'">{{ name }}</h1>
   </template>
+
+  <!-- methods -->
+  <h4>{{ 2 + 2 }}</h4>
+  <h4>{{ 20 + 30 + 40 }}</h4>
+  <h2>Add Methods - {{ add(10,20,30) }}</h2>
+  <h1>Multily Methods - {{ multiply(baseValue) }}</h1>
 </template>
 
 <script>
@@ -133,7 +139,17 @@ export default {
         designation: "Web Application Developer",
         course: "Vue 3",
       },
+      baseMultiplier: 5,
+      baseValue: 2
     };
+  },
+  methods: {
+    add(a, b, c) {
+      return a + b + c;
+    },
+    multiply(num) {
+      return num * this.baseMultiplier;
+    }
   },
 };
 </script>
