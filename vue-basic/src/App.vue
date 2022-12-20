@@ -79,7 +79,7 @@
   <h1>Multily Methods - {{ multiply(baseValue) }}</h1> -->
 
   <!-- Event Handling -->
-  <h2>{{ name }}</h2>
+  <!-- <h2>{{ name }}</h2>
   <button v-on:click="name = 'Superman'">Change Name</button>
 
   <h2>{{ count }}</h2>
@@ -88,7 +88,54 @@
     <button v-on:click="increment(5)">Increment 5</button>
     <button v-on:click="decrement(1)">Decrement 1</button>
     <button v-on:click="decrement(5)">Decrement 5</button>
-  </div>
+  </div> -->
+
+  <!-- Form Handling  -->
+  <form action="">
+    <div>
+      <pre>
+        {{ JSON.stringify(formValues, null, 2) }}
+      </pre>
+    </div>
+    <div>
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" v-model="formValues.name" />
+    </div>
+    <div>
+      <label for="profile">Profile Summary</label>
+      <textarea
+        name="profile"
+        id="profile"
+        cols="10"
+        rows="5"
+        v-model="formValues.profileSummary"
+      ></textarea>
+    </div>
+    <div>
+      <label for="country">Country</label>
+      <select name="country" id="country" v-model="formValues.country">
+        <option value="">Select a Country</option>
+        <option value="bangladesh">Bangladesh</option>
+        <option value="india">India</option>
+        <option value="pakistan">Pakistan</option>
+        <option value="china">China</option>
+      </select>
+    </div>
+    <div>
+      <label for="job-location">Job Location</label>
+      <select
+        name="job-location"
+        id="job-location"
+        multiple
+        v-model="formValues.jobLocation"
+      >
+        <option value="bangladesh">Bangladesh</option>
+        <option value="india">India</option>
+        <option value="pakistan">Pakistan</option>
+        <option value="china">China</option>
+      </select>
+    </div>
+  </form>
 </template>
 
 <script>
@@ -154,6 +201,12 @@ export default {
       baseMultiplier: 5,
       baseValue: 2,
       count: 0,
+      formValues: {
+        name: "",
+        profileSummary: "",
+        country: "",
+        jobLocation: [],
+      },
     };
   },
   methods: {
@@ -178,10 +231,11 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center; */
   color: #2c3e50;
   margin-top: 60px;
 }
+
 #success {
   color: springgreen;
 }
@@ -199,5 +253,28 @@ export default {
 }
 .sold-out {
   color: red;
+}
+
+label {
+  font-weight: bold;
+  display: flex;
+  margin-bottom: 5px;
+}
+input + label {
+  font-weight: bold;
+  display: inline-flex;
+  margin-right: 20px;
+}
+input[type="text"],
+textarea,
+select {
+  display: block;
+  width: 400px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  border-image: none;
 }
 </style>
