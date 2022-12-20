@@ -91,7 +91,7 @@
   </div> -->
 
   <!-- Form Handling  -->
-  <form @submit.prevent="formSubmit">
+  <!-- <form @submit.prevent="formSubmit">
     <div>
       <pre>
         {{ JSON.stringify(formValues, null, 2) }}
@@ -207,10 +207,12 @@
       <label for="age">Age</label>
       <input @keyup.enter="formSubmit" type="number" name="age" id="age" v-model.number="formValues.age">
     </div>
-    <!-- <div>
-      <button>Submit</button>
-    </div> -->
-  </form>
+   
+  </form> -->
+
+<h3 v-once>{{ name }}</h3>
+<button @click="name='Superman'">Change Name</button>
+<h3 v-pre>{{ name }}</h3>
 </template>
 
 <script>
