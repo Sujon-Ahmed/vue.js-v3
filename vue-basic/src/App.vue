@@ -91,7 +91,7 @@
   </div> -->
 
   <!-- Form Handling  -->
-  <form @submit="formSubmit">
+  <form @submit.prevent="formSubmit">
     <div>
       <pre>
         {{ JSON.stringify(formValues, null, 2) }}
@@ -99,7 +99,7 @@
     </div>
     <div>
       <label for="name">Name</label>
-      <input type="text" name="name" id="name" v-model="formValues.name" />
+      <input type="text" name="name" id="name" v-model.trim.lazy="formValues.name" />
     </div>
     <div>
       <label for="profile">Profile Summary</label>
@@ -204,8 +204,12 @@
       <label for="10+">10+</label>
     </div>
     <div>
-      <button>Submit</button>
+      <label for="age">Age</label>
+      <input @keyup.enter="formSubmit" type="number" name="age" id="age" v-model.number="formValues.age">
     </div>
+    <!-- <div>
+      <button>Submit</button>
+    </div> -->
   </form>
 </template>
 
@@ -280,6 +284,7 @@ export default {
         remoteWork: "no",
         skillSet: [],
         yearsOfExperience: [],
+        age: null
       },
     };
   },
@@ -296,8 +301,7 @@ export default {
     decrement(num) {
       this.count -= num;
     },
-    formSubmit(e) {
-      e.preventDefault();
+    formSubmit() {
       console.log('Form Values: ', this.formValues);
     }
   },
