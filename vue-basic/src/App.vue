@@ -209,10 +209,20 @@
     </div>
    
   </form> -->
+  <!-- bonus directives -->
+  <!-- <h3 v-once>{{ name }}</h3>
+  <button @click="name = 'Superman'">Change Name</button>
+  <h3 v-pre>{{ name }}</h3> -->
 
-<h3 v-once>{{ name }}</h3>
-<button @click="name='Superman'">Change Name</button>
-<h3 v-pre>{{ name }}</h3>
+  <!-- computed properties -->
+  <h3>fullName - {{ firstName }} {{ lastName }}</h3>
+  <h1>computed fullname - {{ fullName }}</h1>
+
+  <h1>total - {{ items.reduce((total, curr) => (total += curr.price), 0) }}</h1>
+  <h2>computed total - {{ total }}</h2>
+  <button @click="items.push({ id: 4, title: 'Keyboard', price: 50 })">
+    Add Item
+  </button>
 </template>
 
 <script>
@@ -286,8 +296,27 @@ export default {
         remoteWork: "no",
         skillSet: [],
         yearsOfExperience: [],
-        age: null
+        age: null,
       },
+      firstName: "Sujon",
+      lastName: "Ahmed",
+      items: [
+        {
+          id: 1,
+          title: "TV",
+          price: 100,
+        },
+        {
+          id: 2,
+          title: "Phone",
+          price: 200,
+        },
+        {
+          id: 3,
+          title: "Laptop",
+          price: 300,
+        },
+      ],
     };
   },
   methods: {
@@ -304,8 +333,16 @@ export default {
       this.count -= num;
     },
     formSubmit() {
-      console.log('Form Values: ', this.formValues);
-    }
+      console.log("Form Values: ", this.formValues);
+    },
+  },
+  computed: {
+    fullName() {
+      return `${this.firstName} ${this.lastName}`;
+    },
+    total() {
+      return this.items.reduce((total, curr) => (total += curr.price), 0);
+    },
   },
 };
 </script>
