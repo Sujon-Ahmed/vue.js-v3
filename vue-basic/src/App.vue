@@ -220,9 +220,12 @@
 
   <h1>total - {{ items.reduce((total, curr) => (total += curr.price), 0) }}</h1>
   <h2>computed total - {{ total }}</h2>
+  <h3>method total - {{ totalItemPrice() }}</h3>
   <button @click="items.push({ id: 4, title: 'Keyboard', price: 50 })">
     Add Item
   </button>
+
+  <input type="text" v-model="country">
 </template>
 
 <script>
@@ -317,6 +320,7 @@ export default {
           price: 300,
         },
       ],
+      country: ''
     };
   },
   methods: {
@@ -335,12 +339,17 @@ export default {
     formSubmit() {
       console.log("Form Values: ", this.formValues);
     },
+    totalItemPrice() {
+      console.log('method total');
+      return this.items.reduce((total, curr) => (total += curr.price), 0);      
+    },
   },
   computed: {
     fullName() {
       return `${this.firstName} ${this.lastName}`;
     },
     total() {
+      console.log('computed total');
       return this.items.reduce((total, curr) => (total += curr.price), 0);
     },
   },
