@@ -215,7 +215,7 @@
   <h3 v-pre>{{ name }}</h3> -->
 
   <!-- computed properties -->
-  <h3>fullName - {{ firstName }} {{ lastName }}</h3>
+  <!-- <h3>fullName - {{ firstName }} {{ lastName }}</h3>
   <h1>computed fullname - {{ fullName }}</h1>
 
   <h1>total - {{ items.reduce((total, curr) => (total += curr.price), 0) }}</h1>
@@ -225,7 +225,14 @@
     Add Item
   </button>
 
-  <input type="text" v-model="country">
+  <input type="text" v-model="country"> -->
+
+  <template v-for="item in items" :key="item.id">
+    <h2 v-if="item.price > 100">{{ item.title }} {{ item.price }}</h2>
+  </template>
+  <h3 v-for="item in expensiveItems" :key="item.id">
+    {{ item.title }} {{ item.price }}
+  </h3>
 </template>
 
 <script>
@@ -320,7 +327,7 @@ export default {
           price: 300,
         },
       ],
-      country: ''
+      country: "",
     };
   },
   methods: {
@@ -340,8 +347,8 @@ export default {
       console.log("Form Values: ", this.formValues);
     },
     totalItemPrice() {
-      console.log('method total');
-      return this.items.reduce((total, curr) => (total += curr.price), 0);      
+      console.log("method total");
+      return this.items.reduce((total, curr) => (total += curr.price), 0);
     },
   },
   computed: {
@@ -349,8 +356,11 @@ export default {
       return `${this.firstName} ${this.lastName}`;
     },
     total() {
-      console.log('computed total');
+      console.log("computed total");
       return this.items.reduce((total, curr) => (total += curr.price), 0);
+    },
+    expensiveItems() {
+      return this.items.filter((item) => item.price > 100);
     },
   },
 };
