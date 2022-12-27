@@ -59,3 +59,18 @@ Your code is served at a lighting fast speed and you get nearly instant hot modu
 ```
 npm init vite-app <project-name>
 ```
+## .Vue file
+
+A *.vue file is a custom file format that uses HTML-like syntax to describe a portion of the UI
+
+Each *.vue file consists of three types of top-level languange blocks
+
+- ```<template></template>```
+- ```<script></script>```
+- ```<style></style>```
+
+- __The template block is like the HTML of your UI__
+
+- __The script block is where the logic and functionality of your app can be maintained__
+
+- __The CSS block is where you specify the styles related to the mark up in the template block__
