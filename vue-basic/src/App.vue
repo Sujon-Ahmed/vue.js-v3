@@ -234,10 +234,16 @@
   <h3 v-for="item in expensiveItems" :key="item.id">
     {{ item.title }} {{ item.price }}
   </h3> -->
-  <h1>Volume Tracker - (0 - 20)</h1>
+  <!-- watchers -->
+  <!-- <h1>Volume Tracker - (0 - 20)</h1>
   <h3>Current Volume - {{ volume }}</h3>
   <button @click="volume += 2">Increment</button>
-  <button @click="volume -= 2">Decrement</button>
+  <button @click="volume -= 2">Decrement</button> -->
+  <!-- <input type="text" v-model="movie">
+  <input type="text" v-model="movieInfo.title">
+  <input type="text" v-model="movieInfo.actor"> -->
+  <button @click="movieList = movieList.concat(['Wonder Women'])">Add Movie</button>
+ 
 </template>
 
 <script>
@@ -334,6 +340,12 @@ export default {
       ],
       country: "",
       volume: 0,
+      movie: 'Batman',
+      movieInfo: {
+        title: '',
+        actor: ''
+      },
+      movieList: ['Batman', 'Superman']
     };
   },
   methods: {
@@ -387,6 +399,24 @@ export default {
         );
       }
     },
+    movie: {
+      handler(newValue) {
+        console.log(`Calling API with movie name = ${newValue}`);
+      },
+      immediate: true,
+    },
+    movieInfo: {
+      handler(newValue) {
+        console.log(`Calling API with movie title = ${newValue.title} and actor ${newValue.actor}`);
+      },
+      deep: true
+    },
+    movieList: {
+      handler(newValue) {
+        console.log(`Updated movie list ${newValue}`);
+      },
+      // deep: true
+    }
   },
 };
 </script>
