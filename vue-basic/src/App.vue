@@ -214,9 +214,9 @@
   <button @click="name = 'Superman'">Change Name</button>
   <h3 v-pre>{{ name }}</h3> -->
 
-  <h1>computed fullname - {{ fullName }}</h1>
-  <button @click="changeFullName()">Change Fullname</button>
   <!-- computed properties -->
+  <!-- <h1>computed fullname - {{ fullName }}</h1>
+  <button @click="changeFullName()">Change Fullname</button> -->
   <!-- <h3>fullName - {{ firstName }} {{ lastName }}</h3>
 
   <h1>total - {{ items.reduce((total, curr) => (total += curr.price), 0) }}</h1>
@@ -228,12 +228,16 @@
 
   <input type="text" v-model="country"> -->
 
-  <template v-for="item in items" :key="item.id">
+  <!-- <template v-for="item in items" :key="item.id">
     <h2 v-if="item.price > 100">{{ item.title }} {{ item.price }}</h2>
   </template>
   <h3 v-for="item in expensiveItems" :key="item.id">
     {{ item.title }} {{ item.price }}
-  </h3>
+  </h3> -->
+  <h1>Volume Tracker - (0 - 20)</h1>
+  <h3>Current Volume - {{ volume }}</h3>
+  <button @click="volume += 2">Increment</button>
+  <button @click="volume -= 2">Decrement</button>
 </template>
 
 <script>
@@ -329,6 +333,7 @@ export default {
         },
       ],
       country: "",
+      volume: 0,
     };
   },
   methods: {
@@ -352,8 +357,8 @@ export default {
       return this.items.reduce((total, curr) => (total += curr.price), 0);
     },
     changeFullName() {
-      this.fullName = 'Sarah Islam';
-    }
+      this.fullName = "Sarah Islam";
+    },
   },
   computed: {
     fullName: {
@@ -361,10 +366,10 @@ export default {
         return `${this.firstName} ${this.lastName}`;
       },
       set(value) {
-        const names = value.split(' ');
+        const names = value.split(" ");
         this.firstName = names[0];
         this.lastName = names[1];
-      }
+      },
     },
     total() {
       console.log("computed total");
@@ -372,6 +377,15 @@ export default {
     },
     expensiveItems() {
       return this.items.filter((item) => item.price > 100);
+    },
+  },
+  watch: {
+    volume(newVolume, oldVolume) {
+      if (newVolume > oldVolume && newVolume === 16) {
+        alert(
+          "Listening to a high volume for a long time may damage your hearing!"
+        );
+      }
     },
   },
 };
@@ -382,7 +396,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
+  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
