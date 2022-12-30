@@ -214,9 +214,10 @@
   <button @click="name = 'Superman'">Change Name</button>
   <h3 v-pre>{{ name }}</h3> -->
 
+  <h1>computed fullname - {{ fullName }}</h1>
+  <button @click="changeFullName()">Change Fullname</button>
   <!-- computed properties -->
   <!-- <h3>fullName - {{ firstName }} {{ lastName }}</h3>
-  <h1>computed fullname - {{ fullName }}</h1>
 
   <h1>total - {{ items.reduce((total, curr) => (total += curr.price), 0) }}</h1>
   <h2>computed total - {{ total }}</h2>
@@ -350,10 +351,20 @@ export default {
       console.log("method total");
       return this.items.reduce((total, curr) => (total += curr.price), 0);
     },
+    changeFullName() {
+      this.fullName = 'Sarah Islam';
+    }
   },
   computed: {
-    fullName() {
-      return `${this.firstName} ${this.lastName}`;
+    fullName: {
+      get() {
+        return `${this.firstName} ${this.lastName}`;
+      },
+      set(value) {
+        const names = value.split(' ');
+        this.firstName = names[0];
+        this.lastName = names[1];
+      }
     },
     total() {
       console.log("computed total");
