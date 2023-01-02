@@ -3,7 +3,7 @@
   <GreetComponent name="Clark" heroName="Superman" />
   <GreetComponent name="Daina" heroName="Wonder Woman" />
   <GreetComponent :name="name" :heroName="heroName" /> -->
-  <ArticleComponent title="Artcle title" :likes="50" :isPublished="true" />
+  <ArticleComponent id="my-article" title="Artcle title" :likes="50" :isPublished="true" />
 </template>
 
 <script>
