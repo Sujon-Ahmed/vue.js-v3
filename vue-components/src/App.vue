@@ -3,29 +3,39 @@
   <GreetComponent name="Clark" heroName="Superman" />
   <GreetComponent name="Daina" heroName="Wonder Woman" />
   <GreetComponent :name="name" :heroName="heroName" /> -->
-  <!-- <ArticleComponent id="my-article" title="Artcle title" :likes="50" :isPublished="true" /> -->
+
+  <!-- <ArticleComponent id="my-article" title="" :likes="50" :isPublished="true" /> -->
+
   <!-- <h2>AppComponent username {{ name }}</h2> -->
+
   <!-- <ComponentC /> -->
-  <button @click="showPopup = true">Show Popup</button>
-  <PopupComponent v-show="showPopup" @close="closePopup" />
+
+  <!-- <button @click="showPopup = true">Show Popup</button>
+  <PopupComponent v-show="showPopup" @close="closePopup" /> -->
+
+  <CustomInput v-model="name" />
+
 </template>
 
 <script>
 // import GreetComponent from "./components/GreetComponent.vue";
 // import ArticleComponent from "./components/ArticleComponent.vue";
 // import ComponentC from "./components/ComponentC.vue";
-import PopupComponent from "./components/PopupComponent.vue";
+// import PopupComponent from "./components/PopupComponent.vue";
+import CustomInput from './components/CustomInput.vue';
 export default {
   name: "App",
   components: {
     // GreetComponent,
+    // ArticleComponent
     // ComponentC,
-    PopupComponent,
+    // PopupComponent,
+    CustomInput
   },
   data() {
     return {
-      name: "Sujon Ahmed",
-      heroName: "Developer",
+      name: "",
+      heroName: "Web Application Developer",
       showPopup: false,
     };
   },
