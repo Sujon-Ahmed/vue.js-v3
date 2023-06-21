@@ -13,8 +13,11 @@
   <!-- <button @click="showPopup = true">Show Popup</button>
   <PopupComponent v-show="showPopup" @close="closePopup" /> -->
 
-  <CustomInput v-model="name" />
-
+  <!-- <CustomInput v-model="name" /> -->
+  <CardComponent></CardComponent>
+  <CardComponent>Card content</CardComponent>
+  <CardComponent><h2>Card title</h2></CardComponent>
+  <CardComponent><img src="https://picsum.photos/200" /></CardComponent>
 </template>
 
 <script>
@@ -22,7 +25,8 @@
 // import ArticleComponent from "./components/ArticleComponent.vue";
 // import ComponentC from "./components/ComponentC.vue";
 // import PopupComponent from "./components/PopupComponent.vue";
-import CustomInput from './components/CustomInput.vue';
+// import CustomInput from './components/CustomInput.vue';
+import CardComponent from "./components/CardComponent.vue";
 export default {
   name: "App",
   components: {
@@ -30,7 +34,8 @@ export default {
     // ArticleComponent
     // ComponentC,
     // PopupComponent,
-    CustomInput
+    // CustomInput
+    CardComponent,
   },
   data() {
     return {
@@ -42,9 +47,9 @@ export default {
   methods: {
     closePopup(name) {
       this.showPopup = false;
-      console.log('name:',name);
-    }
-  },  
+      console.log("name:", name);
+    },
+  },
   provide() {
     return {
       username: this.name,
