@@ -14,7 +14,8 @@
   <PopupComponent v-show="showPopup" @close="closePopup" /> -->
 
   <!-- <CustomInput v-model="name" /> -->
-  <CardComponent>
+  
+  <!-- <CardComponent>
     <template v-slot:header>
       <h3>Card Component Title</h3>
     </template>
@@ -28,7 +29,27 @@
 
   <CardComponent>Card content</CardComponent>
   <CardComponent><h2>Card title</h2></CardComponent>
-  <CardComponent><img src="https://picsum.photos/200" /></CardComponent>
+  <CardComponent><img src="https://picsum.photos/200" /></CardComponent> -->
+
+  <NameList>
+    <template v-slot:default="slotProps">
+      {{ slotProps.firstName }} {{ slotProps.lastName }}
+    </template>
+  </NameList>
+
+  <NameList>
+    <template v-slot:default="slotProps">
+      {{ slotProps.lastName }} {{ slotProps.firstName }}
+    </template>
+  </NameList>
+
+  <NameList>
+    <template v-slot:default="slotProps">
+      {{ slotProps.firstName }}
+    </template>
+  </NameList>
+
+
 </template>
 
 <script>
@@ -37,7 +58,9 @@
 // import ComponentC from "./components/ComponentC.vue";
 // import PopupComponent from "./components/PopupComponent.vue";
 // import CustomInput from './components/CustomInput.vue';
-import CardComponent from "./components/CardComponent.vue";
+// import CardComponent from "./components/CardComponent.vue";
+import NameList from "./components/NameList.vue";
+
 export default {
   name: "App",
   components: {
@@ -46,7 +69,8 @@ export default {
     // ComponentC,
     // PopupComponent,
     // CustomInput
-    CardComponent,
+    // CardComponent,
+    NameList,
   },
   data() {
     return {
