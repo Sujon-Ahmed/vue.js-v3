@@ -14,7 +14,7 @@
   <PopupComponent v-show="showPopup" @close="closePopup" /> -->
 
   <!-- <CustomInput v-model="name" /> -->
-  
+
   <!-- <CardComponent>
     <template v-slot:header>
       <h3>Card Component Title</h3>
@@ -31,7 +31,7 @@
   <CardComponent><h2>Card title</h2></CardComponent>
   <CardComponent><img src="https://picsum.photos/200" /></CardComponent> -->
 
-  <NameList>
+  <!-- <NameList>
     <template v-slot:default="slotProps">
       {{ slotProps.firstName }} {{ slotProps.lastName }}
     </template>
@@ -47,9 +47,15 @@
     <template v-slot:default="slotProps">
       {{ slotProps.firstName }}
     </template>
-  </NameList>
+  </NameList> -->
 
+  <button @click="activeTab = 'TabA'">TabA</button>
+  <button @click="activeTab = 'TabB'">TabB</button>
+  <button @click="activeTab = 'TabC'">TabC</button>
 
+  <TabA v-if="activeTab === 'TabA'" />
+  <TabB v-if="activeTab === 'TabB'" />
+  <TabC v-if="activeTab === 'TabC'" />
 </template>
 
 <script>
@@ -59,7 +65,11 @@
 // import PopupComponent from "./components/PopupComponent.vue";
 // import CustomInput from './components/CustomInput.vue';
 // import CardComponent from "./components/CardComponent.vue";
-import NameList from "./components/NameList.vue";
+// import NameList from "./components/NameList.vue";
+
+import TabA from "./components/TabA.vue";
+import TabB from "./components/TabB.vue";
+import TabC from "./components/TabC.vue";
 
 export default {
   name: "App",
@@ -70,13 +80,18 @@ export default {
     // PopupComponent,
     // CustomInput
     // CardComponent,
-    NameList,
+    // NameList,
+
+    TabA,
+    TabB,
+    TabC,
   },
   data() {
     return {
       name: "",
       heroName: "Web Application Developer",
       showPopup: false,
+      activeTab: "TabA",
     };
   },
   methods: {
