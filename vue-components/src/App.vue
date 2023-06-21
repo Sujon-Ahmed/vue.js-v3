@@ -14,7 +14,18 @@
   <PopupComponent v-show="showPopup" @close="closePopup" /> -->
 
   <!-- <CustomInput v-model="name" /> -->
-  <CardComponent></CardComponent>
+  <CardComponent>
+    <template v-slot:header>
+      <h3>Card Component Title</h3>
+    </template>
+    <template v-slot:default>
+      <img src="https://picsum.photos/200" />
+    </template>
+    <template v-slot:footer>
+      <button>View Details</button>
+    </template>
+  </CardComponent>
+
   <CardComponent>Card content</CardComponent>
   <CardComponent><h2>Card title</h2></CardComponent>
   <CardComponent><img src="https://picsum.photos/200" /></CardComponent>
