@@ -49,16 +49,21 @@
     </template>
   </NameList> -->
 
-  <button @click="activeTab = 'TabA'">TabA</button>
+  <!-- <button @click="activeTab = 'TabA'">TabA</button>
   <button @click="activeTab = 'TabB'">TabB</button>
-  <button @click="activeTab = 'TabC'">TabC</button>
+  <button @click="activeTab = 'TabC'">TabC</button> -->
 
   <!-- <TabA v-if="activeTab === 'TabA'" />
   <TabB v-if="activeTab === 'TabB'" />
   <TabC v-if="activeTab === 'TabC'" /> -->
-  <keep-alive>
+  <!-- <keep-alive>
     <component :is="activeTab" />
-  </keep-alive>
+  </keep-alive> -->
+
+  <teleport to="#portal-root">
+    <PortalComponent />
+  </teleport>
+  
 </template>
 
 <script>
@@ -70,9 +75,11 @@
 // import CardComponent from "./components/CardComponent.vue";
 // import NameList from "./components/NameList.vue";
 
-import TabA from "./components/TabA.vue";
-import TabB from "./components/TabB.vue";
-import TabC from "./components/TabC.vue";
+// import TabA from "./components/TabA.vue";
+// import TabB from "./components/TabB.vue";
+// import TabC from "./components/TabC.vue";
+
+import PortalComponent from "./components/PortalComponent.vue";
 
 export default {
   name: "App",
@@ -85,9 +92,11 @@ export default {
     // CardComponent,
     // NameList,
 
-    TabA,
-    TabB,
-    TabC,
+    // TabA,
+    // TabB,
+    // TabC,
+
+    PortalComponent,
   },
   data() {
     return {
