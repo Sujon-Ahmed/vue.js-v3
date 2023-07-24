@@ -1,14 +1,14 @@
 <template>
-  <DemoTwo />
+  <MethodsComponent />
 </template>
 
 <script>
-import DemoTwo from "./components/DemoTwo.vue";
+import MethodsComponent from "./components/MethodsComponent.vue";
 
 export default {
   name: "App",
   components: {
-    DemoTwo,
+    MethodsComponent,
   },
 };
 </script>
