@@ -1,14 +1,14 @@
 <template>
-  <ComputedComponent />
+  <WatcherComponent />
 </template>
 
 <script>
-import ComputedComponent from "./components/ComputedComponent.vue";
+import WatcherComponent from "./components/WatcherComponent.vue";
 
 export default {
   name: "App",
   components: {
-    ComputedComponent,
+    WatcherComponent,
   },
 };
 </script>
