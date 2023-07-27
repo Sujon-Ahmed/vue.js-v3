@@ -1,14 +1,14 @@
 <template>
-  <TemplateRef />
+  <PersonComponent />
 </template>
 
 <script>
-import TemplateRef from "./components/TemplateRef.vue";
+import PersonComponent from "./components/PersonComponent.vue";
 
 export default {
   name: "App",
   components: {
-    TemplateRef,
+    PersonComponent,
   },
 };
 </script>
