@@ -1,17 +1,14 @@
 <template>
-  <LifecycleO />
-  <LifecycleC />
+  <TemplateRef />
 </template>
 
 <script>
-import LifecycleO from "./components/LifecycleO.vue";
-import LifecycleC from "./components/LifecycleC.vue";
+import TemplateRef from "./components/TemplateRef.vue";
 
 export default {
   name: "App",
   components: {
-    LifecycleO,
-    LifecycleC,
+    TemplateRef,
   },
 };
 </script>
